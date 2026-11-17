@@ -1,0 +1,27 @@
+{
+  "project": "pendulum",
+  "budget": 6,
+  "rounds": [
+    {
+      "n": 1,
+      "role": "checker",
+      "verdict": "FAIL",
+      "note": "D4: integration off by 0.293 (missing sqrt2)",
+      "at": "2026-11-17T15:49:51Z"
+    },
+    {
+      "n": 2,
+      "role": "planner",
+      "verdict": "INFO",
+      "note": "fix round 1",
+      "at": "2026-11-17T15:49:51Z"
+    },
+    {
+      "n": 3,
+      "role": "checker",
+      "verdict": "PASS",
+      "note": "8/8 tests",
+      "at": "2026-11-17T15:49:51Z"
+    }
+  ]
+}
