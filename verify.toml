@@ -1,0 +1,28 @@
+[project]
+name = "space-team-toolkit"
+
+# The skill repo verifies itself. A verifier nobody verifies is a rumour.
+
+[[check]]
+name = "toolkit unit tests"
+cmd = "PYTHONPATH=. python3 -m unittest discover -s tests -t ."
+required = true
+timeout = 300
+
+[[check]]
+name = "worked example still passes end to end"
+cmd = "python3 scripts/verify.py --project examples/pendulum --no-write"
+required = true
+timeout = 300
+
+[[check]]
+name = "plugin manifest and skill frontmatter are valid"
+cmd = "python3 -c \"import json,sys;d=json.load(open('.claude-plugin/plugin.json'));assert d['name']=='space-team';t=open('skills/space-team/SKILL.md').read();assert t.startswith('---');assert 'name: space-team' in t.split('---')[1];print('manifest ok')\""
+required = true
+timeout = 30
+
+[[check]]
+name = "no unresolved placeholders in shipped docs"
+cmd = "! grep -rn 'TBD' README.md skills/ docs/ commands/ || (echo 'TBD found in shipped docs'; false)"
+required = true
+timeout = 30

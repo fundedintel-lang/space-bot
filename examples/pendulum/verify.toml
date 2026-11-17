@@ -1,0 +1,23 @@
+[project]
+name = "pendulum"
+
+# Checks run from THIS directory (the project), so paths to the toolkit go
+# through $SPACE_ROOT. Every required check must exit 0 before the loop may stop.
+
+[[check]]
+name = "unit tests (dimensional, closed form, limits, negative control)"
+cmd = "PYTHONPATH=$SPACE_ROOT:$SPACE_ROOT/scripts:$SPACE_ROOT/examples/pendulum/src python3 -m unittest discover -s $SPACE_ROOT/examples/pendulum/tests -t $SPACE_ROOT -v"
+required = true
+timeout = 300
+
+[[check]]
+name = "sanity kit self-test"
+cmd = "python3 $SPACE_ROOT/scripts/sanity.py --demo"
+required = true
+timeout = 60
+
+[[check]]
+name = "plan is not still a template"
+cmd = "grep -q '## Definition of Done' PLAN.md && ! grep -q 'TBD' PLAN.md"
+required = true
+timeout = 30

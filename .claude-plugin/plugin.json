@@ -1,0 +1,16 @@
+{
+  "name": "space-team",
+  "version": "0.1.0",
+  "description": "Planner -> Builder -> Checker -> Master-sweep -> Judge -> Clerk loop that keeps building until a machine-checkable goal passes. Physics/maths/simulation aware, with dimensional analysis and a hard round budget.",
+  "author": {
+    "name": "fundedintel-lang"
+  },
+  "license": "MIT",
+  "keywords": [
+    "autonomous-loop",
+    "verification",
+    "physics",
+    "simulation",
+    "multi-role"
+  ]
+}
